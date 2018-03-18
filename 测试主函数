@@ -1,0 +1,30 @@
+#include "list_with_head.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+	struct node *head = NULL;
+	init_list(&head);
+	int data = 0;
+	printf("Please input the data: ");
+	scanf("%d", &data);
+	struct node *new_node = NULL;
+	for (int i = 0; i < 10; i++) {
+		new_node = make_node(i + data);
+		insert_to_tail(head, new_node);
+		//insert_from_head(head, new_node);
+	}
+	print_list_with_head(head);
+	printf("----------\n");
+
+	printf("Please input the data to be searched: ");
+	scanf("%d", &data);
+	new_node = search_node(head, data);
+	delete_node(head, new_node);
+	print_list_with_head(head);
+
+	destroy_list_with_head(&head);
+
+	return 0;
+}
