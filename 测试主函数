@@ -23,6 +23,10 @@ int main() {
 	new_node = search_node(head, data);
 	delete_node(head, new_node);
 	print_list_with_head(head);
+	printf("----------\n");
+
+	reverse(head);
+	print_list_with_head(head);
 
 	destroy_list_with_head(&head);
 
