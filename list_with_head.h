@@ -32,4 +32,7 @@ void print_list_with_head(struct node *head);
 
 //销毁链表
 void destroy_list_with_head(struct node **phead);
+
+//逆序链表
+void reverse(struct node *head);
 #endif
