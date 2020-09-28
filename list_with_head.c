@@ -68,7 +68,7 @@ int insert_to_tail(struct node *head, struct node *new_node) {
 	struct node *last_node = NULL;
 	for (last_node = head; last_node->next != NULL; last_node = last_node->next);
 
-	new_node->next = last_node->next; //new_node->next = NULL; 亦可省略此句
+	new_node->next = last_node->next; 			//new_node->next = NULL; 亦可省略此句
 	last_node->next = new_node;
 
 	return 0;
@@ -99,7 +99,7 @@ void delete_node(struct node *head, struct node *pnode) {
 	struct node *p = NULL;
 	for (p = head; p->next != NULL; p = p->next) {
 		if (p->next == pnode) {
-			p->next = pnode->next; //p->next = p->next->next;
+			p->next = pnode->next; 			//p->next = p->next->next;
 			printf("%d is deleted\n", pnode->data);
 			free_node(pnode);
 			return;
@@ -148,21 +148,21 @@ void reverse(struct node *head) {
 		printf("The list is empty\n");
 		return;
 	}
-	struct node *prev = head->next; //要逆序的节点的前驱节点
+	struct node *prev = head->next; 			//要逆序的节点的前驱节点
 	if (!prev->next) {
 		printf("The list has only one node\n");
 		return;
 	}
 	//此时链表中至少有两个节点
-	struct node *p = prev->next; //要逆序的节点
+	struct node *p = prev->next; 				//要逆序的节点
 	struct node *pnext = NULL;
-	while (p) { //循环退出时p为NULL，prev指向尾节点
+	while (p) { 						//循环退出时p为NULL，prev指向尾节点
 		pnext = p->next;
 		p->next = prev;
 		prev = p;
 		p = pnext;
 	}
-	head->next->next = NULL; //原来的第一个节点变成尾节点
-	head->next = prev; //head指向原来的尾节点
+	head->next->next = NULL; 				//原来的第一个节点变成尾节点
+	head->next = prev; 					//head指向原来的尾节点
 	return;
 }
